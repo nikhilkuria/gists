@@ -1,0 +1,117 @@
+CREATE (MotilalNehru:Person:Male {name:'Motilal Nehru', Family:'Nehru-Gandhi',Born:'1861',Gender:'Male', Alive:'false', Wiki:'http://en.wikipedia.org/wiki/Motilal_Nehru' })
+CREATE (JawaharlalNehru:Person:Male {name:'Jawaharlal Nehru', Family:'Nehru-Gandhi',Born:'1889',Gender:'Male', Alive:'false', Wiki:'http://en.wikipedia.org/wiki/Jawaharlal_Nehru' })
+CREATE (IndiraGandhi:Person:Female {name:'Indira Gandhi', Family:'Nehru-Gandhi',Born:'1917',Gender:'Female', Alive:'false', Wiki:'http://en.wikipedia.org/wiki/Indira_Gandhi' })
+CREATE (RajivGandhi:Person:Male {name:'Rajiv Gandhi', Family:'Nehru-Gandhi',Born:'1944',Gender:'Male', Alive:'false', Wiki:'http://en.wikipedia.org/wiki/Rajiv_Gandhi' })
+CREATE (SoniaGandhi:Person:Female {name:'Sonia Gandhi', Family:'Nehru-Gandhi',Born:'1946',Gender:'Female', Alive:'true', Wiki:'http://en.wikipedia.org/wiki/Sonia_Gandhi' })
+CREATE (RahulGandhi:Person:Male {name:'Rahul Gandhi', Family:'Nehru-Gandhi',Born:'1970',Gender:'Male', Alive:'true', Wiki:'http://en.wikipedia.org/wiki/Sonia_Gandhi' })
+CREATE (PriyankaVadra:Person:Female {name:'Priyanka Vadra', Family:'Nehru-Gandhi',Born:'1972',Gender:'Female', Alive:'true', Wiki:'http://en.wikipedia.org/wiki/Priyanka_Gandhi' })
+CREATE (SanjayGandhi:Person:Male {name:'Sanjay Gandhi', Family:'Nehru-Gandhi',Born:'1946',Gender:'Male', Alive:'false', Wiki:'http://en.wikipedia.org/wiki/Sanjay_Gandhi' })
+CREATE (MenakaGandhi:Person:Female {name:'Menaka Gandhi', Family:'Nehru-Gandhi',Born:'1956',Gender:'Female', Alive:'true', Wiki:'http://en.wikipedia.org/wiki/Menaka_Gandhi' })
+CREATE (VarunGandhi:Person:Male {name:'Varun Gandhi', Family:'Nehru-Gandhi',Born:'1980',Gender:'Male', Alive:'true', Wiki:'http://en.wikipedia.org/wiki/Varun_Gandhi' })
+CREATE (VijayaLakshmiPandit:Person:Female {name:'Vijaya Lakshmi Pandit', Family:'Nehru-Gandhi',Born:'1900',Gender:'Female', Alive:'false', Wiki:'http://en.wikipedia.org/wiki/Vijaya_Lakshmi_Pandit' })
+CREATE (FerozeGandhi:Person:Male {name:'Feroze Gandhi', Family:'Nehru-Gandhi',Born:'1912',Gender:'Male', Alive:'false', Wiki:'http://en.wikipedia.org/wiki/Feroze_Gandhi' })
+
+CREATE
+(MotilalNehru)-[:FATHER_OF]->(JawaharlalNehru),
+(MotilalNehru)-[:FATHER_OF]->(VijayaLakshmiPandit),
+(MotilalNehru)-[:GRAND_FATHER_OF]->(IndiraGandhi)
+
+CREATE
+(JawaharlalNehru)-[:FATHER_OF]->(IndiraGandhi),
+(JawaharlalNehru)-[:SON_OF]->(MotilalNehru),
+(JawaharlalNehru)-[:BROTHER_OF]->(VijayaLakshmiPandit),
+(JawaharlalNehru)-[:FATHER_IN_LAW_OF]->(FerozeGandhi),
+(JawaharlalNehru)-[:GRAND_FATHER_OF]->(RajivGandhi),
+(JawaharlalNehru)-[:GRAND_FATHER_OF]->(SanjayGandhi)
+
+CREATE
+(VijayaLakshmiPandit)-[:SISTER_OF]->(JawaharlalNehru),
+(VijayaLakshmiPandit)-[:DAUGHTER_OF]->(MotilalNehru)
+
+CREATE
+(IndiraGandhi)-[:DAUGHTER_OF]->(JawaharlalNehru),
+(IndiraGandhi)-[:WIFE_OF]->(FerozeGandhi),
+(IndiraGandhi)-[:MOTHER_OF]->(RajivGandhi),
+(IndiraGandhi)-[:MOTHER_OF]->(SanjayGandhi),
+(IndiraGandhi)-[:MOTHER_IN_LAW_OF]->(SoniaGandhi),
+(IndiraGandhi)-[:MOTHER_IN_LAW_OF]->(MenakaGandhi),
+(IndiraGandhi)-[:GRAND_MOTHER_OF]->(RahulGandhi),
+(IndiraGandhi)-[:GRAND_MOTHER_OF]->(PriyankaVadra),
+(IndiraGandhi)-[:GRAND_MOTHER_OF]->(VarunGandhi),
+(IndiraGandhi)-[:GRAND_DAUGHTER_OF]->(MotilalNehru)
+
+CREATE
+(FerozeGandhi)-[:HUSBAND_OF]->(IndiraGandhi),
+(FerozeGandhi)-[:FATHER_OF]->(RajivGandhi),
+(FerozeGandhi)-[:FATHER_OF]->(SanjayGandhi),
+(FerozeGandhi)-[:FATHER_IN_LAW_OF]->(SoniaGandhi),
+(FerozeGandhi)-[:FATHER_IN_LAW_OF]->(MenakaGandhi),
+(FerozeGandhi)-[:GRAND_FATHER_OF]->(RahulGandhi),
+(FerozeGandhi)-[:GRAND_FATHER_OF]->(PriyankaVadra),
+(FerozeGandhi)-[:GRAND_FATHER_OF]->(VarunGandhi)
+
+CREATE
+(RajivGandhi)-[:SON_OF]->(IndiraGandhi),
+(RajivGandhi)-[:HUSBAND_0F]->(SoniaGandhi),
+(RajivGandhi)-[:FATHER_OF]->(RahulGandhi),
+(RajivGandhi)-[:FATHER_OF]->(PriyankaVadra),
+(RajivGandhi)-[:GRAND_SON_OF]->(JawaharlalNehru),
+(RajivGandhi)-[:BROTHER_OF]->(SanjayGandhi),
+(RajivGandhi)-[:BROTHER_IN_LAW_OF]->(MenakaGandhi)
+
+CREATE
+(SanjayGandhi)-[:SON_OF]->(IndiraGandhi),
+(SanjayGandhi)-[:HUSBAND_0F]->(MenakaGandhi),
+(SanjayGandhi)-[:FATHER_OF]->(VarunGandhi),
+(SanjayGandhi)-[:GRAND_SON_OF]->(JawaharlalNehru),
+(SanjayGandhi)-[:BROTHER_OF]->(RajivGandhi),
+(SanjayGandhi)-[:BROTHER_IN_LAW_OF]->(SoniaGandhi)
+
+CREATE
+(SoniaGandhi)-[:WIFE_OF]->(RajivGandhi),
+(SoniaGandhi)-[:MOTHER_OF]->(RahulGandhi),
+(SoniaGandhi)-[:MOTHER_OF]->(PriyankaVadra),
+(SoniaGandhi)-[:SISTER_IN_LAW_OF]->(MenakaGandhi),
+(SoniaGandhi)-[:SISTER_IN_LAW_OF]->(SanjayGandhi)
+
+CREATE
+(MenakaGandhi)-[:WIFE_OF]->(SanjayGandhi),
+(MenakaGandhi)-[:MOTHER_OF]->(VarunGandhi),
+(MenakaGandhi)-[:SISTER_IN_LAW_OF]->(SoniaGandhi),
+(MenakaGandhi)-[:SISTER_IN_LAW_OF]->(RajivGandhi)
+
+CREATE
+(RahulGandhi)-[:SON_OF]->(SoniaGandhi),
+(RahulGandhi)-[:SON_OF]->(RajivGandhi),
+(RahulGandhi)-[:GRAND_SON_OF]->(IndiraGandhi),
+(RahulGandhi)-[:BROTHER_OF]->(PriyankaVadra)
+
+CREATE
+(PriyankaVadra)-[:DAUGHTER_OF]->(SoniaGandhi),
+(PriyankaVadra)-[:DAUGHTER_OF]->(RajivGandhi),
+(PriyankaVadra)-[:GRAND_DAUGHTER_OF]->(IndiraGandhi),
+(PriyankaVadra)-[:SISTER_OF]->(RahulGandhi)
+
+CREATE
+(VarunGandhi)-[:SON_OF]->(SanjayGandhi),
+(VarunGandhi)-[:SON_OF]->(MenakaGandhi),
+(VarunGandhi)-[:GRAND_SON_OF]->(IndiraGandhi)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
