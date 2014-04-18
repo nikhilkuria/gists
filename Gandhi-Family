@@ -10,92 +10,92 @@ CREATE (MenakaGandhi:Person:Female {name:'Menaka Gandhi', Family:'Nehru-Gandhi',
 CREATE (VarunGandhi:Person:Male {name:'Varun Gandhi', Family:'Nehru-Gandhi',Born:'1980',Gender:'Male', Alive:'true', Wiki:'http://en.wikipedia.org/wiki/Varun_Gandhi' })
 CREATE (VijayaLakshmiPandit:Person:Female {name:'Vijaya Lakshmi Pandit', Family:'Nehru-Gandhi',Born:'1900',Gender:'Female', Alive:'false', Wiki:'http://en.wikipedia.org/wiki/Vijaya_Lakshmi_Pandit' })
 CREATE (FerozeGandhi:Person:Male {name:'Feroze Gandhi', Family:'Nehru-Gandhi',Born:'1912',Gender:'Male', Alive:'false', Wiki:'http://en.wikipedia.org/wiki/Feroze_Gandhi' })
+
+CREATE
+(MotilalNehru)-[:FATHER_OF{Degree:1,Reciprocal:false}]->(JawaharlalNehru),
+(MotilalNehru)-[:FATHER_OF{Degree:1,Reciprocal:false}]->(VijayaLakshmiPandit),
+(MotilalNehru)-[:GRAND_FATHER_OF{Degree:2,Reciprocal:false}]->(IndiraGandhi)
 
 CREATE
-(MotilalNehru)-[:FATHER_OF]->(JawaharlalNehru),
-(MotilalNehru)-[:FATHER_OF]->(VijayaLakshmiPandit),
-(MotilalNehru)-[:GRAND_FATHER_OF]->(IndiraGandhi)
+(JawaharlalNehru)-[:FATHER_OF{Degree:1,Reciprocal:false}]->(IndiraGandhi),
+(JawaharlalNehru)-[:SON_OF{Degree:1,Reciprocal:true}]->(MotilalNehru),
+(JawaharlalNehru)-[:SIBLING_OF{Degree:2,Reciprocal:false}]->(VijayaLakshmiPandit),
+(JawaharlalNehru)-[:FATHER_IN_LAW_OF{Degree:3,Reciprocal:false}]->(FerozeGandhi),
+(JawaharlalNehru)-[:GRAND_FATHER_OF{Degree:2,Reciprocal:false}]->(RajivGandhi),
+(JawaharlalNehru)-[:GRAND_FATHER_OF{Degree:2,Reciprocal:false}]->(SanjayGandhi)
 
 CREATE
-(JawaharlalNehru)-[:FATHER_OF]->(IndiraGandhi),
-(JawaharlalNehru)-[:SON_OF]->(MotilalNehru),
-(JawaharlalNehru)-[:BROTHER_OF]->(VijayaLakshmiPandit),
-(JawaharlalNehru)-[:FATHER_IN_LAW_OF]->(FerozeGandhi),
-(JawaharlalNehru)-[:GRAND_FATHER_OF]->(RajivGandhi),
-(JawaharlalNehru)-[:GRAND_FATHER_OF]->(SanjayGandhi)
+//(VijayaLakshmiPandit)-[:SISTER_OF{Degree:1,Reciprocal:false}]->(JawaharlalNehru),
+(VijayaLakshmiPandit)-[:DAUGHTER_OF{Degree:1,RECIPROCAL:true}]->(MotilalNehru)
 
 CREATE
-(VijayaLakshmiPandit)-[:SISTER_OF]->(JawaharlalNehru),
-(VijayaLakshmiPandit)-[:DAUGHTER_OF]->(MotilalNehru)
+(IndiraGandhi)-[:DAUGHTER_OF{Degree:1,Reciprocal:true}]->(JawaharlalNehru),
+//(IndiraGandhi)-[:SPOUSE_OF{Degree:1,Reciprocal:false}]->(FerozeGandhi),
+(IndiraGandhi)-[:MOTHER_OF{Degree:1,Reciprocal:false}]->(RajivGandhi),
+(IndiraGandhi)-[:MOTHER_OF{Degree:1,Reciprocal:false}]->(SanjayGandhi),
+//(IndiraGandhi)-[:MOTHER_IN_LAW_OF{Degree:3,Reciprocal:false}]->(SoniaGandhi),
+//(IndiraGandhi)-[:MOTHER_IN_LAW_OF{Degree:3,Reciprocal:false}]->(MenakaGandhi),
+(IndiraGandhi)-[:GRAND_MOTHER_OF{Degree:2,Reciprocal:false}]->(RahulGandhi),
+(IndiraGandhi)-[:GRAND_MOTHER_OF{Degree:2,Reciprocal:false}]->(PriyankaVadra),
+(IndiraGandhi)-[:GRAND_MOTHER_OF{Degree:2,Reciprocal:false}]->(VarunGandhi),
+(IndiraGandhi)-[:GRAND_DAUGHTER_OF{Degree:2,Reciprocal:true}]->(MotilalNehru)
 
 CREATE
-(IndiraGandhi)-[:DAUGHTER_OF]->(JawaharlalNehru),
-(IndiraGandhi)-[:WIFE_OF]->(FerozeGandhi),
-(IndiraGandhi)-[:MOTHER_OF]->(RajivGandhi),
-(IndiraGandhi)-[:MOTHER_OF]->(SanjayGandhi),
-(IndiraGandhi)-[:MOTHER_IN_LAW_OF]->(SoniaGandhi),
-(IndiraGandhi)-[:MOTHER_IN_LAW_OF]->(MenakaGandhi),
-(IndiraGandhi)-[:GRAND_MOTHER_OF]->(RahulGandhi),
-(IndiraGandhi)-[:GRAND_MOTHER_OF]->(PriyankaVadra),
-(IndiraGandhi)-[:GRAND_MOTHER_OF]->(VarunGandhi),
-(IndiraGandhi)-[:GRAND_DAUGHTER_OF]->(MotilalNehru)
+(FerozeGandhi)-[:SPOUSE_OF{Degree:1,Reciprocal:false}]->(IndiraGandhi),
+(FerozeGandhi)-[:FATHER_OF{Degree:1,Reciprocal:false}]->(RajivGandhi),
+(FerozeGandhi)-[:FATHER_OF{Degree:1,Reciprocal:false}]->(SanjayGandhi),
+//(FerozeGandhi)-[:FATHER_IN_LAW_OF{Degree:2,Reciprocal:false}]->(SoniaGandhi),
+//(FerozeGandhi)-[:FATHER_IN_LAW_OF{Degree:2,Reciprocal:false}]->(MenakaGandhi),
+(FerozeGandhi)-[:GRAND_FATHER_OF{Degree:2,Reciprocal:false}]->(RahulGandhi),
+(FerozeGandhi)-[:GRAND_FATHER_OF{Degree:2,Reciprocal:false}]->(PriyankaVadra),
+(FerozeGandhi)-[:GRAND_FATHER_OF{Degree:2,Reciprocal:false}]->(VarunGandhi)
 
 CREATE
-(FerozeGandhi)-[:HUSBAND_OF]->(IndiraGandhi),
-(FerozeGandhi)-[:FATHER_OF]->(RajivGandhi),
-(FerozeGandhi)-[:FATHER_OF]->(SanjayGandhi),
-(FerozeGandhi)-[:FATHER_IN_LAW_OF]->(SoniaGandhi),
-(FerozeGandhi)-[:FATHER_IN_LAW_OF]->(MenakaGandhi),
-(FerozeGandhi)-[:GRAND_FATHER_OF]->(RahulGandhi),
-(FerozeGandhi)-[:GRAND_FATHER_OF]->(PriyankaVadra),
-(FerozeGandhi)-[:GRAND_FATHER_OF]->(VarunGandhi)
+(RajivGandhi)-[:SON_OF{Degree:2,Reciprocal:false}]->(IndiraGandhi),
+(RajivGandhi)-[:SPOUSE_0F{Degree:1,Reciprocal:false}]->(SoniaGandhi),
+(RajivGandhi)-[:FATHER_OF{Degree:1,Reciprocal:false}]->(RahulGandhi),
+(RajivGandhi)-[:FATHER_OF{Degree:1,Reciprocal:false}]->(PriyankaVadra),
+(RajivGandhi)-[:GRAND_SON_OF{Degree:2,Reciprocal:true}]->(JawaharlalNehru),
+(RajivGandhi)-[:SIBLING_OF{Degree:1,Reciprocal:false}]->(SanjayGandhi)
+//(RajivGandhi)-[:BROTHER_IN_LAW_OF{Degree:2,Reciprocal:false}]->(MenakaGandhi)
 
 CREATE
-(RajivGandhi)-[:SON_OF]->(IndiraGandhi),
-(RajivGandhi)-[:HUSBAND_0F]->(SoniaGandhi),
-(RajivGandhi)-[:FATHER_OF]->(RahulGandhi),
-(RajivGandhi)-[:FATHER_OF]->(PriyankaVadra),
-(RajivGandhi)-[:GRAND_SON_OF]->(JawaharlalNehru),
-(RajivGandhi)-[:BROTHER_OF]->(SanjayGandhi),
-(RajivGandhi)-[:BROTHER_IN_LAW_OF]->(MenakaGandhi)
+(SanjayGandhi)-[:SON_OF{Degree:1,Reciprocal:true}]->(IndiraGandhi),
+(SanjayGandhi)-[:SPOUSE_0F{Degree:1,Reciprocal:false}]->(MenakaGandhi),
+(SanjayGandhi)-[:FATHER_OF{Degree:1,Reciprocal:false}]->(VarunGandhi),
+(SanjayGandhi)-[:GRAND_SON_OF{Degree:2,Reciprocal:true}]->(JawaharlalNehru)
+//(SanjayGandhi)-[:BROTHER_OF{Degree:2,Reciprocal:false}]->(RajivGandhi)
+//(SanjayGandhi)-[:BROTHER_IN_LAW_OF{Degree:2,Reciprocal:false}]->(SoniaGandhi)
 
 CREATE
-(SanjayGandhi)-[:SON_OF]->(IndiraGandhi),
-(SanjayGandhi)-[:HUSBAND_0F]->(MenakaGandhi),
-(SanjayGandhi)-[:FATHER_OF]->(VarunGandhi),
-(SanjayGandhi)-[:GRAND_SON_OF]->(JawaharlalNehru),
-(SanjayGandhi)-[:BROTHER_OF]->(RajivGandhi),
-(SanjayGandhi)-[:BROTHER_IN_LAW_OF]->(SoniaGandhi)
+//(SoniaGandhi)-[:WIFE_OF{Degree:2,Reciprocal:false}]->(RajivGandhi),
+(SoniaGandhi)-[:MOTHER_OF{Degree:1,Reciprocal:false}]->(RahulGandhi),
+(SoniaGandhi)-[:MOTHER_OF{Degree:1,Reciprocal:false}]->(PriyankaVadra)
+//(SoniaGandhi)-[:SISTER_IN_LAW_OF{Degree:2,Reciprocal:false}]->(MenakaGandhi),
+//(SoniaGandhi)-[:SISTER_IN_LAW_OF{Degree:2,Reciprocal:false}]->(SanjayGandhi)
 
 CREATE
-(SoniaGandhi)-[:WIFE_OF]->(RajivGandhi),
-(SoniaGandhi)-[:MOTHER_OF]->(RahulGandhi),
-(SoniaGandhi)-[:MOTHER_OF]->(PriyankaVadra),
-(SoniaGandhi)-[:SISTER_IN_LAW_OF]->(MenakaGandhi),
-(SoniaGandhi)-[:SISTER_IN_LAW_OF]->(SanjayGandhi)
+//(MenakaGandhi)-[:WIFE_OF{Degree:2,Reciprocal:false}]->(SanjayGandhi),
+(MenakaGandhi)-[:MOTHER_OF{Degree:1,Reciprocal:false}]->(VarunGandhi)
+//(MenakaGandhi)-[:SISTER_IN_LAW_OF{Degree:2,Reciprocal:false}]->(SoniaGandhi),
+//(MenakaGandhi)-[:SISTER_IN_LAW_OF{Degree:3,Reciprocal:false}]->(RajivGandhi)
 
 CREATE
-(MenakaGandhi)-[:WIFE_OF]->(SanjayGandhi),
-(MenakaGandhi)-[:MOTHER_OF]->(VarunGandhi),
-(MenakaGandhi)-[:SISTER_IN_LAW_OF]->(SoniaGandhi),
-(MenakaGandhi)-[:SISTER_IN_LAW_OF]->(RajivGandhi)
+(RahulGandhi)-[:SON_OF{Degree:1,Reciprocal:true}]->(SoniaGandhi),
+(RahulGandhi)-[:SON_OF{Degree:1,Reciprocal:true}]->(RajivGandhi),
+(RahulGandhi)-[:GRAND_SON_OF{Degree:2,Reciprocal:true}]->(IndiraGandhi),
+(RahulGandhi)-[:SIBLING_OF{Degree:1,Reciprocal:false}]->(PriyankaVadra)
 
 CREATE
-(RahulGandhi)-[:SON_OF]->(SoniaGandhi),
-(RahulGandhi)-[:SON_OF]->(RajivGandhi),
-(RahulGandhi)-[:GRAND_SON_OF]->(IndiraGandhi),
-(RahulGandhi)-[:BROTHER_OF]->(PriyankaVadra)
+(PriyankaVadra)-[:DAUGHTER_OF{Degree:1,Reciprocal:true}]->(SoniaGandhi),
+(PriyankaVadra)-[:DAUGHTER_OF{Degree:1,Reciprocal:true}]->(RajivGandhi),
+(PriyankaVadra)-[:GRAND_DAUGHTER_OF{Degree:2,Reciprocal:true}]->(IndiraGandhi)
+//(PriyankaVadra)-[:SISTER_OF{Degree:2,Reciprocal:false}]->(RahulGandhi)
 
 CREATE
-(PriyankaVadra)-[:DAUGHTER_OF]->(SoniaGandhi),
-(PriyankaVadra)-[:DAUGHTER_OF]->(RajivGandhi),
-(PriyankaVadra)-[:GRAND_DAUGHTER_OF]->(IndiraGandhi),
-(PriyankaVadra)-[:SISTER_OF]->(RahulGandhi)
-
-CREATE
-(VarunGandhi)-[:SON_OF]->(SanjayGandhi),
-(VarunGandhi)-[:SON_OF]->(MenakaGandhi),
-(VarunGandhi)-[:GRAND_SON_OF]->(IndiraGandhi)
+(VarunGandhi)-[:SON_OF{Degree:1,Reciprocal:true}]->(SanjayGandhi),
+(VarunGandhi)-[:SON_OF{Degree:1,Reciprocal:true}]->(MenakaGandhi),
+(VarunGandhi)-[:GRAND_SON_OF{Degree:2,Reciprocal:true}]->(IndiraGandhi)
 
 
 
