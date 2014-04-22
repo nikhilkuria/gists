@@ -1,0 +1,66 @@
+CREATE (JoseArcadioBuendia:Male {name:'Jose Arcadio Buendia',Gender:'Male'})
+
+CREATE (UrsulaIguaran:Female {name:'Ursula Iguaran',Gender:'Female'})
+CREATE (JoseArcadio:Male {name:'Jose Arcadio',Gender:'Male'})
+CREATE (AurelianoBuendia:Male {name:'Colonel Aureliano Buendia',Gender:'Male'})
+CREATE (Rebeca:Female {name:'Rebeca',Gender:'Female'})
+CREATE (RemediosMoscote:Female {name:'Remedios Moscote',Gender:'Female'})
+CREATE (Amaranta:Female {name:'Amaranta',Gender:'Female'})
+
+CREATE (PilarTernera:Female {name:'Pilar Ternera',Gender:'Female'})
+
+CREATE (Arcadio:Male {name:'Arcadio',Gender:'Male'})
+CREATE (SantaSofia:Female {name:'Santa Sofia',Gender:'Female'})
+CREATE (AurelianoJose:Male {name:'Aureliano Jose',Gender:'Male'})
+
+CREATE (Remedios:Female {name:'Remedios the beauty',Gender:'Female'})
+CREATE (AmarantaUrsula:Female {name:'Amaranta Ursula',Gender:'Female'})
+CREATE (PetraCotes:Female {name:'Petra Cotes',Gender:'Female'})
+CREATE (AurelianaSegundo:Male {name:'Aureliano Segundo',Gender:'Male'})
+CREATE (FernandaDelCaprio:Female {name:'Fernanda Del Caprio',Gender:'Female'})
+
+CREATE (JoseArcadioSegundo:Male {name:'Jose Arcadio Segundo',Gender:'Male'})
+CREATE (RenataRemedios:Female {name:'Renata Remedios',Gender:'Female'})
+CREATE (JoseArcadio2:Male {name:'Jose Arcadio',Gender:'Male'})
+CREATE (AurelianoBabilonia:Male {name:'Aureliano Babilonia',Gender:'Male'})
+CREATE (Aureliano2:Male {name:'Aureliano',Gender:'Male'})
+CREATE (Aurelianos:Male {name:'17 Aurelianos',Gender:'Male'})
+
+CREATE
+(JoseArcadioBuendia)-[:HUSBAND]->(UrsulaIguaran),
+(JoseArcadioBuendia)-[:FATHER]->(JoseArcadio),
+(JoseArcadioBuendia)-[:FATHER]->(AurelianoBuendia),
+(JoseArcadioBuendia)-[:FATHER]->(Rebeca),
+(JoseArcadioBuendia)-[:FATHER]->(Amaranta),
+(UrsulaIguaran)-[:MOTHER]->(JoseArcadio),
+(UrsulaIguaran)-[:MOTHER]->(AurelianoBuendia),
+(UrsulaIguaran)-[:MOTHER]->(Rebeca),
+(UrsulaIguaran)-[:MOTHER]->(Amaranta),
+(JoseArcadio)-[:HUSBAND]->(Rebeca),
+(AurelianoBuendia)-[:HUSBAND]->(RemediosMoscote),
+(PilarTernera)-[:MISTRESS]->(JoseArcadio),
+(PilarTernera)-[:MISTRESS]->(AurelianoBuendia),
+(PilarTernera)-[:MOTHER]->(Arcadio),
+(JoseArcadio)-[:FATHER]->(Arcadio),
+(PilarTernera)-[:MOTHER]->(AurelianoJose),
+(AurelianoBuendia)-[:FATHER]->(AurelianoJose),
+(Arcadio)-[:HUSBAND]->(SantaSofia),
+(Arcadio)-[:FATHER]->(Remedios),
+(SantaSofia)-[:MOTHER]->(Remedios),
+(Arcadio)-[:FATHER]->(JoseArcadioSegundo),
+(SantaSofia)-[:MOTHER]->(JoseArcadioSegundo),
+(Arcadio)-[:FATHER]->(AurelianaSegundo),
+(SantaSofia)-[:MOTHER]->(AurelianaSegundo),
+(AurelianaSegundo)-[:HUSBAND]->(FernandaDelCaprio),
+(PetraCotes)-[:MISTRESS]->(AurelianaSegundo),
+(AurelianaSegundo)-[:FATHER]->(RenataRemedios),
+(FernandaDelCaprio)-[:MOTHER]->(RenataRemedios),
+(AurelianaSegundo)-[:FATHER]->(AmarantaUrsula),
+(FernandaDelCaprio)-[:MOTHER]->(AmarantaUrsula),
+(AurelianaSegundo)-[:FATHER]->(JoseArcadio2),
+(FernandaDelCaprio)-[:MOTHER]->(JoseArcadio2),
+(RenataRemedios)-[:MOTHER]->(AurelianoBabilonia),
+(AurelianoBabilonia)-[:FATHER]->(Aureliano2),
+(AmarantaUrsula)-[:MOTHER]->(Aureliano2),
+(AurelianoBuendia)-[:FATHER]->(Aurelianos)
+
